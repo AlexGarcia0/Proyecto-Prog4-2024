@@ -2,7 +2,7 @@
 #ifndef CIUDAD_H_
 #define CIUDAD_H_
 
-#include "../pais/pais.h"
+#include "../Pais/pais.h"
 
 
 typedef struct {
