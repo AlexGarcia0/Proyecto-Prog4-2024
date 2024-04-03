@@ -1,9 +1,9 @@
 #ifndef DEUSTOTEKA_H
 #define DEUSTOTEKA_H
 
-#include "usuario.h"
-#include "libro.h"
-#include "empleado.h"
+#include "..Usuario/usuario.h"
+#include "..Libro/libro.h"
+#include "..Empleado/empleado.h"
 
 
 typedef struct {
