@@ -2,6 +2,14 @@
 #include <string.h>
 #include "usuario.h"
 
+int contraseniaCorrecta(char *conU,char *con){
+	int correcta = 0;
+	if(strcmp(conU, con)==0){
+		correcta = 1;
+	}
+	return correcta;
+}
+
 void registrarUsuario(Usuario usuarios[], int *numUsuarios) {
 	Usuario nuevoUsuario;
 	printf("Ingresa el nombre: ");

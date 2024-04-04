@@ -8,6 +8,9 @@
 #include "menus.h"
 #include <stdio.h>
 int main(){
+	Usuario u;
+	int pos;
+	char opcion,opcionP;
 	do{
 		opcion = bienvenidoDeustoteca();
 		switch(opcion){
@@ -16,11 +19,31 @@ int main(){
 						if(pos!=-1){
 							printf("Lo sentimos! Ese nombre de usuario ya existe\n");
 						}else{
-							aniadirUsuario(&lu, u);
-							aniadirUsuarioAlFinalDelFichero(u, NOMFICH);
+							registrarUsuario();
 							}
 			break;
-			case '2': pedirUsuario();
+			case '2':   u=pedirUsuario();
+						pos=buscarUsuarioPorNombre();
+						if(pos==-1){
+							printf("Lo sentimos! No tenemos datos de tu registro\n");
+						}else{
+							if(contraseniaCorrecta(Usuario[pos], u.con)){
+								printf("Bienvenido!!\n"); fflush(stdout);
+								do{
+									opcionP=menuPrincipal();
+									switch(opcionP){
+									case '1':
+									case '2':
+									case '3':printf("Volviendo al men� principal...\n"); fflush(stdout);
+									  break;
+									}
+								}while(opcionP != '3');
+							}else{
+								printf("Lo sentimos! La contrase�a no es correcta\n");fflush(stdout);
+							}
+
+						}
+						break;
 			case '3':
 			case '4': printf("Fin del programa\n");
 					  fflush(stdout);

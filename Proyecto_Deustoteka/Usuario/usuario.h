@@ -11,7 +11,7 @@ typedef struct usuario{
 }Usuario;
 
 Usuario pedirUsuario();
-
+int contraseniaCorrecta(char *conU, char *con);
 void registrarUsuario(Usuario usuarios[], int *numUsuarios);
 void mostrarUsuarios(Usuario usuarios[], int numUsuarios);
 Usuario *buscarUsuarioPorNombre(Usuario usuario[], int numUsuario, const char *nombre);
