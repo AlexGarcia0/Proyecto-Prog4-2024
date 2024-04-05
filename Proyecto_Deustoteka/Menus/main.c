@@ -15,7 +15,7 @@ int main(){
 		opcion = bienvenidoDeustoteca();
 		switch(opcion){
 			case '1':   u=pedirUsuario();
-						pos=buscarUsuarioPorNombre();
+						pos=buscarNombreUsuario(u.nomUsuario);
 						if(pos!=-1){
 							printf("Lo sentimos! Ese nombre de usuario ya existe\n");
 						}else{
@@ -27,7 +27,7 @@ int main(){
 						if(pos==-1){
 							printf("Lo sentimos! No tenemos datos de tu registro\n");
 						}else{
-							if(contrasenyaCorrecta(Usuario[pos], u.con)){
+							if(contrasenyaCorrecta(usuarios[pos], u.contrasenya)){
 								printf("Bienvenido!!\n"); fflush(stdout);
 								do{
 									opcionP=menuPrincipal();

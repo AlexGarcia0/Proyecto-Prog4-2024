@@ -14,5 +14,6 @@ Usuario pedirUsuario();
 int contrasenyaCorrecta(char *contrasenyaU, char *contrasenya);
 void registrarUsuario(Usuario *usuario);
 void mostrarUsuarios(Usuario *usuario);
+int buscarNombreUsuario(const char *nombreUsuario);
 
 #endif /* USUARIO_H */

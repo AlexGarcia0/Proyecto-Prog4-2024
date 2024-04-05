@@ -2,6 +2,11 @@
 #include <string.h>
 #include "usuario.h"
 
+#define MAX_USUARIOS 100
+
+Usuario usuarios[MAX_USUARIOS];
+int numUsuarios = 0;
+
 int contrasenyaCorrecta(char *contrasenyaU,char *contrasenya){
 	int correcta = 0;
 	if(strcmp(contrasenyaU, contrasenya)==0){
@@ -38,6 +43,19 @@ void registrarUsuario(Usuario *usuario) {
 	scanf("%s", usuario->email);
 	printf("Ingresa el número de teléfono: ");
 	scanf("%s", usuario->telefono);
+
+	char nombreUsuario[MAX_USUARIOS];
+	int nombreUsuarioEnUso;
+	do {
+		printf("Ingresa el nombre de usuario: ");
+		scanf("%s", nombreUsuario);
+		nombreUsuarioEnUso = buscarNombreUsuario(nombreUsuario);
+		if (nombreUsuarioEnUso) {
+			printf("El nombre de usuario ya está en uso. Por favor, elija otro.\n");
+		}
+	} while (nombreUsuarioEnUso);
+
+	strcpy(usuario->nomUsuario, nombreUsuario);
 }
 
 void mostrarUsuario(Usuario *usuario) {
@@ -46,4 +64,13 @@ void mostrarUsuario(Usuario *usuario) {
 	printf("Email: %s\n", usuario->email);
 	printf("Teléfono: %s\n", usuario->telefono);
 	printf("\n");
+}
+
+int buscarNombreUsuario(const char *nombreUsuario) {
+	for (int i = 0; i < numUsuarios; i++) {
+		if (strcmp(usuarios[i].nomUsuario, nombreUsuario) == 0) {
+			return 1;
+		}
+	}
+	return 0;
 }
