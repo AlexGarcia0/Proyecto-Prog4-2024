@@ -23,7 +23,7 @@ int main(){
 							}
 			break;
 			case '2':   u=pedirUsuario();
-						pos=buscarUsuarioPorNombre();
+						pos=buscarNombreUsuario();
 						if(pos==-1){
 							printf("Lo sentimos! No tenemos datos de tu registro\n");
 						}else{
