@@ -2,49 +2,48 @@
 #include <string.h>
 #include "usuario.h"
 
-int contraseniaCorrecta(char *conU,char *con){
+int contrasenyaCorrecta(char *contrasenyaU,char *contrasenya){
 	int correcta = 0;
-	if(strcmp(conU, con)==0){
+	if(strcmp(contrasenyaU, contrasenya)==0){
 		correcta = 1;
 	}
 	return correcta;
 }
 
-void registrarUsuario(Usuario usuarios[], int *numUsuarios) {
-	Usuario nuevoUsuario;
+Usuario pedirUsuario(){
+	Usuario u;
+
+	printf("Introduce el nombre de usuario/a: ");
+	fflush(stdout);
+	fflush(stdin);
+	gets(u.nom);
+
+	printf("Introduce la contrasenya: ");
+	fflush(stdout);
+	fflush(stdin);
+	gets(u.con);
+	return u;
+}
+
+void registrarUsuario(Usuario *usuario) {
 	printf("Ingresa el nombre: ");
-	scanf("%s", nuevoUsuario.nombre);
+	scanf("%s", usuario->nombre);
 	printf("Ingresa los apellidos: ");
-	scanf("%s", nuevoUsuario.apellidos);
-	printf("Ingresa el nombre de usuario: ");
-	scanf("%s", nuevoUsuario.nomUsuario);
-	printf("Ingresa la contraseña: ");
-	scanf("%s", nuevoUsuario.contrasenya);
+	scanf("%s", usuario->apellidos);
+	printf("Ingresa el nombre de usuario/a: ");
+	scanf("%s", usuario->nomUsuario);
+	printf("Ingresa la contrasenya: ");
+	scanf("%s", usuario->contrasenya);
 	printf("Ingresa el correo electrónico: ");
-	scanf("%s", nuevoUsuario.email);
+	scanf("%s", usuario->email);
 	printf("Ingresa el número de teléfono: ");
-	scanf("%s", nuevoUsuario.telefono);
-
-	usuarios[*numUsuarios] = nuevoUsuario;
-	(*numUsuarios)++;
+	scanf("%s", usuario->telefono);
 }
 
-void mostrarUsuarios(Usuario usuarios[], int numUsuarios) {
-	printf("Usuarios registrados:\n");
-	for (int i = 0; i < numUsuarios; i++) {
-		printf("Nombre: %s %s\n", usuarios[i].nombre, usuarios[i].apellidos);
-		printf("Usuario: %s\n", usuarios[i].usuario);
-		printf("Email: %s\n", usuarios[i].email);
-		printf("Teléfono: %s\n", usuarios[i].telefono);
-		printf("\n");
-	}
-}
-
-Usuario *buscarUsuarioPorNombre(Usuario usuarios[], int numUsuarios, const char *nombre) {
-	for (int i = 0; i < numUsuarios; i++) {
-		if (strcmp(usuarios[i].nomUsuario, nomUsuario) == 0) {
-			return &usuarios[i];
-		}
-	}
-	return NULL;
+void mostrarUsuario(Usuario *usuario) {
+	printf("Nombre: %s %s\n", usuario->nombre, usuario->apellidos);
+	printf("Usuario: %s\n", usuario->nomUsuario);
+	printf("Email: %s\n", usuario->email);
+	printf("Teléfono: %s\n", usuario->telefono);
+	printf("\n");
 }
