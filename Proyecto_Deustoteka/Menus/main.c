@@ -27,7 +27,7 @@ int main(){
 						if(pos==-1){
 							printf("Lo sentimos! No tenemos datos de tu registro\n");
 						}else{
-							if(contraseniaCorrecta(Usuario[pos], u.con)){
+							if(contrasenyaCorrecta(Usuario[pos], u.con)){
 								printf("Bienvenido!!\n"); fflush(stdout);
 								do{
 									opcionP=menuPrincipal();
