@@ -16,12 +16,12 @@ Usuario pedirUsuario(){
 	printf("Introduce el nombre de usuario/a: ");
 	fflush(stdout);
 	fflush(stdin);
-	gets(u.nom);
+	gets(u.nomUsuario);
 
 	printf("Introduce la contrasenya: ");
 	fflush(stdout);
 	fflush(stdin);
-	gets(u.con);
+	gets(u.contrasenya);
 	return u;
 }
 
