@@ -44,18 +44,23 @@ void registrarUsuario(Usuario *usuario) {
 	printf("Ingresa el número de teléfono: ");
 	scanf("%s", usuario->telefono);
 
-	char nombreUsuario[MAX_USUARIOS];
 	int nombreUsuarioEnUso;
 	do {
 		printf("Ingresa el nombre de usuario: ");
-		scanf("%s", nombreUsuario);
-		nombreUsuarioEnUso = buscarNombreUsuario(nombreUsuario);
+		scanf("%s", usuario->nomUsuario);
+		nombreUsuarioEnUso = buscarNombreUsuario(usuario->nomUsuario);
 		if (nombreUsuarioEnUso) {
 			printf("El nombre de usuario ya está en uso. Por favor, elija otro.\n");
 		}
+
 	} while (nombreUsuarioEnUso);
 
-	strcpy(usuario->nomUsuario, nombreUsuario);
+		if(numUsuarios < MAX_USUARIOS) {
+			usuarios[numUsuarios] = *usuario;
+			numUsuarios++;
+		} else {
+			printf("Se ha alcanzado el límite de usuarios.\n");
+		}
 }
 
 void mostrarUsuario(Usuario *usuario) {
@@ -64,13 +69,4 @@ void mostrarUsuario(Usuario *usuario) {
 	printf("Email: %s\n", usuario->email);
 	printf("Teléfono: %s\n", usuario->telefono);
 	printf("\n");
-}
-
-int buscarNombreUsuario(const char *nombreUsuario) {
-	for (int i = 0; i < numUsuarios; i++) {
-		if (strcmp(usuarios[i].nomUsuario, nombreUsuario) == 0) {
-			return 1;
-		}
-	}
-	return 0;
 }
