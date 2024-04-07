@@ -23,7 +23,7 @@ int main(){
 
 	sqlite3 *db;
 
-//	int rc = sqlite3_open("Deustoteka.db", &db);
+//	int rc = sqlite3_open("Deustoteka.sqlite", &db);
 //
 //	if (rc != SQLITE_OK) {
 //		fprintf(stderr, "Error al abrir la base de datos: %s\n", sqlite3_errmsg(db));
