@@ -6,7 +6,7 @@
 int crearBDD() {
     sqlite3 *db;
     char *err_msg = 0;
-    int rc = sqlite3_open("mi_base_de_datos.db", &db);
+    int rc = sqlite3_open("Deustoteka.db", &db);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Error al abrir la base de datos: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);
@@ -18,9 +18,10 @@ int crearBDD() {
                 "DNI INTEGER PRIMARY KEY,"
                 "nombre TEXT NOT NULL,"
                 "apellidos TEXT NOT NULL,"
-                "email TEXT UNIQUE NOT NULL,"
+                "email TEXT NOT NULL,"
                 "telefono TEXT,"
-                "contraseña TEXT NOT NULL);";
+    			"nomUsuario TEXT UNIQUE NOT NULL"
+                "contrasenya TEXT NOT NULL);";
     rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Error al crear la tabla 'usuarios': %s\n", err_msg);
@@ -48,14 +49,12 @@ int crearBDD() {
 
     // Crear tabla "libros"
     sql = "CREATE TABLE libros ("
-          "ISBN INTEGER PRIMARY KEY,"
+          "isbn INTEGER PRIMARY KEY,"
           "titulo TEXT NOT NULL,"
           "autor TEXT NOT NULL,"
-          "fecha_publicacion TEXT NOT NULL,"
           "estado TEXT NOT NULL,"
           "cantidad INTEGER NOT NULL,"
-          "tipo_libro_id INTEGER NOT NULL,"
-          "FOREIGN KEY (tipo_libro_id) REFERENCES tipo_libro(ID));";
+          "tipo TEXT NOT NULL);";
     rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Error al crear la tabla 'libros': %s\n", err_msg);
@@ -64,17 +63,6 @@ int crearBDD() {
         return 1;
     }
 
-    // Crear tabla "tipo_libro"
-    sql = "CREATE TABLE tipo_libro ("
-          "ID INTEGER PRIMARY KEY,"
-          "categoria TEXT NOT NULL);";
-    rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
-    if (rc != SQLITE_OK) {
-        fprintf(stderr, "Error al crear la tabla 'tipo_libro': %s\n", err_msg);
-        sqlite3_free(err_msg);
-        sqlite3_close(db);
-        return 1;
-    }
 
     // Crear tabla "deustoteka"
     sql = "CREATE TABLE deustoteka ("
@@ -119,14 +107,12 @@ int crearBDD() {
 
     // Crear tabla "empleado"
     sql = "CREATE TABLE empleado ("
-          "DNI INTEGER PRIMARY KEY,"
+          "dni INTEGER PRIMARY KEY,"
           "nombre TEXT NOT NULL,"
           "apellidos TEXT NOT NULL,"
           "telefono TEXT,"
           "cargo TEXT NOT NULL,"
-          "email TEXT NOT NULL,"
-          "deustoteka_id INTEGER NOT NULL,"
-          "FOREIGN KEY (deustoteka_id) REFERENCES deustoteka(ID));";
+          "email TEXT NOT NULL);";
     rc = sqlite3_exec(db, sql, 0, 0, &err_msg);
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Error al crear la tabla 'empleado': %s\n", err_msg);
