@@ -1,7 +1,7 @@
 #include <stdio.h>
 char bienvenidoDeustoteca(){
 	char opcion;
-	printf("BIENVENIDO A DEUSTOTECA\n");
+	printf("BIENVENIDO A DEUSTOTEKA\n");
 	printf("------------------------\n ");
 	printf("1. Registrarse\n");
 	printf("2. Iniciar sesion\n");
