@@ -12,7 +12,7 @@
 #include "sqlite3.h"
 
 
-int crerBDD();
+int crearBDD();
 
 
 #endif /* BDD_H_ */
