@@ -1,12 +1,5 @@
-/*
- * main.c
- *
- *  Created on: 4 abr 2024
- *      Author: iker2
- */
 #include "Usuario/usuario.h"
 #include "Menus/menus.h"
-#include "Usuario/listaUsuarios.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -16,27 +9,13 @@
 
 
 
-
-
 int main(){
 
-
 	sqlite3 *db;
-
-//	int rc = sqlite3_open("Deustoteka.sqlite", &db);
-//
-//	if (rc != SQLITE_OK) {
-//		fprintf(stderr, "Error al abrir la base de datos: %s\n", sqlite3_errmsg(db));
-//		return 1;
-//	}
-//
-//	if (crearBDD(db) != 0) {
-//		fprintf(stderr, "Error al crear la base de datos.\n");
-//		return 1;
-//	}
+	crearBDD(&db);
 
 	Usuario u;
-	char opcion, opcionP, opcionB;
+	char opcion, opcionP;
 
 	do{
 		opcion = bienvenidoDeustoteca();
@@ -52,21 +31,6 @@ int main(){
 								opcionP=menuPrincipal();
 								switch(opcionP){
 								case '1':
-									if (opcionP=='1    '){
-										do{
-											opcionB=menuPrincipal();
-											switch(opcionB){
-												case '1':
-												case '2':
-												case '3':
-												case '4':
-												case '5':
-												case '6':
-											}while(opcionP != '6')
-
-
-
-
 								case '2':
 								case '3':printf("Volviendo al menú principal...\n"); fflush(stdout);
 								break;
@@ -86,10 +50,7 @@ int main(){
 			   	   	  fflush(stdout);
 		}
 	} while(opcion!='4');
-
-
-	return 0;
-}
+		sqlite3_close(db);
 	return 0;
 }
 
