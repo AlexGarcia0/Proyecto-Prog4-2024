@@ -13,7 +13,6 @@
 
 
 int crerBDD();
-int cerrarBDD();
 
 
 #endif /* BDD_H_ */
