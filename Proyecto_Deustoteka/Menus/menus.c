@@ -43,22 +43,7 @@ char menuAdministrador(){
 	return opcion;
 };
 
-char busquedaDeLibros(){
-	char opcion;
-		printf("BUSQUEDA DE LIBROS\n");
-		printf("------------------------\n ");
-		printf("1. Busqueda por ISBN\n");
-		printf("2. Busqueda por titulo\n");
-		printf("3. Busqueda por categoria\n");
-		printf("4. Busqueda por autor\n");
-		printf("5. Busqueda por disponibilidad\n");
-		printf("6. Volver\n");
-		printf("Elige una opci�n: ");
-		fflush(stdout);
-		fflush(stdin);
-		scanf("%c",&opcion);
-		return opcion;
-};
+
 
 char gestionarAlquileres(){
 	char opcion;
