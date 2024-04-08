@@ -42,3 +42,21 @@ char menuAdministrador(){
 	scanf("%c",&opcion);
 	return opcion;
 };
+
+
+
+char gestionarAlquileres(){
+	char opcion;
+		printf("GESTIONAR ALQUILERES\n");
+		printf("------------------------\n ");
+		printf("1. Mostrar todos mis alquileres actuales\n");
+		printf("2. Prolongar alquiler\n");
+		printf("3. Devolver libro\n");
+		printf("4. Volver\n");
+		printf("Elige una opci�n: ");
+		fflush(stdout);
+		fflush(stdin);
+		scanf("%c",&opcion);
+		return opcion;
+};
+
