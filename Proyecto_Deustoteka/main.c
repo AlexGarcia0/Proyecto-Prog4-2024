@@ -36,7 +36,7 @@ int main(){
 //	}
 
 	Usuario u;
-	char opcion, opcionP;
+	char opcion, opcionP, opcionB;
 
 	do{
 		opcion = bienvenidoDeustoteca();
@@ -52,6 +52,21 @@ int main(){
 								opcionP=menuPrincipal();
 								switch(opcionP){
 								case '1':
+									if (opcionP=='1    '){
+										do{
+											opcionB=menuPrincipal();
+											switch(opcionB){
+												case '1':
+												case '2':
+												case '3':
+												case '4':
+												case '5':
+												case '6':
+											}while(opcionP != '6')
+
+
+
+
 								case '2':
 								case '3':printf("Volviendo al menú principal...\n"); fflush(stdout);
 								break;

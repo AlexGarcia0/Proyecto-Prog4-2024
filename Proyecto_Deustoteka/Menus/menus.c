@@ -42,3 +42,36 @@ char menuAdministrador(){
 	scanf("%c",&opcion);
 	return opcion;
 };
+
+char busquedaDeLibros(){
+	char opcion;
+		printf("BUSQUEDA DE LIBROS\n");
+		printf("------------------------\n ");
+		printf("1. Busqueda por ISBN\n");
+		printf("2. Busqueda por titulo\n");
+		printf("3. Busqueda por categoria\n");
+		printf("4. Busqueda por autor\n");
+		printf("5. Busqueda por disponibilidad\n");
+		printf("6. Volver\n");
+		printf("Elige una opci�n: ");
+		fflush(stdout);
+		fflush(stdin);
+		scanf("%c",&opcion);
+		return opcion;
+};
+
+char gestionarAlquileres(){
+	char opcion;
+		printf("GESTIONAR ALQUILERES\n");
+		printf("------------------------\n ");
+		printf("1. Mostrar todos mis alquileres actuales\n");
+		printf("2. Prolongar alquiler\n");
+		printf("3. Devolver libro\n");
+		printf("4. Volver\n");
+		printf("Elige una opci�n: ");
+		fflush(stdout);
+		fflush(stdin);
+		scanf("%c",&opcion);
+		return opcion;
+};
+

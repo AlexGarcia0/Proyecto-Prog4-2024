@@ -11,6 +11,8 @@
 char bienvenidoDeustoteca();
 char menuPrincipal();
 char menuAdministrador();
+char busquedaDeLibros();
+char gestionarAlquileres();
 
 
 #endif /* PROYECTO_DEUSTOTEKA_MENUS_MENUS_H_ */
