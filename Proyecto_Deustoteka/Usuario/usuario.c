@@ -31,7 +31,7 @@ int verificarUsuario(const char* nomUsuario, const char* contrasenya, sqlite3* d
 	sqlite3_stmt *stmt;
 
 	if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
-		fprintf(stderr, "Error al preparar la consulta: %s\n", sqlite3_errmsg(db));
+		fprintf(stderr, "Error al preparar la consulta para verificar usuarios: %s\n", sqlite3_errmsg(db));
 		return 0;
 	}
 
@@ -90,7 +90,7 @@ void registrarUsuario(Usuario *usuario, sqlite3 *db) {
     sqlite3_stmt *stmt;
 
     if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
-        fprintf(stderr, "Error al preparar la consulta: %s\n", sqlite3_errmsg(db));
+        fprintf(stderr, "Error al preparar la consulta en usuarios: %s\n", sqlite3_errmsg(db));
         return;
     }
 
@@ -144,7 +144,7 @@ int buscarNombreUsuario(const char *nombreUsuario, sqlite3 *db) {
 	int resultado = 0;
 
 	if (sqlite3_prepare_v2(db, sql, -1, &stmt, NULL) != SQLITE_OK) {
-		fprintf(stderr, "Error al preparar la consulta: %s\n", sqlite3_errmsg(db));
+		fprintf(stderr, "Error al preparar la consulta buscar nombre de usuario: %s\n", sqlite3_errmsg(db));
 		return resultado;
 	}
 
@@ -157,3 +157,4 @@ int buscarNombreUsuario(const char *nombreUsuario, sqlite3 *db) {
 	sqlite3_finalize(stmt);
 	return resultado;
 }
+
